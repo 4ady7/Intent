@@ -1,0 +1,11 @@
+// Change these three values together when you move Focus to your own developer account.
+// The entitlements file and the Info.plist key FocusAppGroupIdentifier read FOCUS_APP_GROUP.
+FOCUS_BUNDLE_ID = com.shady.Focus
+FOCUS_APP_GROUP = group.com.shady.Focus
+DEVELOPMENT_TEAM =
+
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 1
+IPHONEOS_DEPLOYMENT_TARGET = 17.0
+TARGETED_DEVICE_FAMILY = 1
+SWIFT_VERSION = 5.0

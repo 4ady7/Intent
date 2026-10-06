@@ -1,0 +1,1195 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F0000000000000000000107A /* BlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001001 /* BlockingService.swift */; };
+		F0000000000000000000107B /* FocusDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001004 /* FocusDuration.swift */; };
+		F0000000000000000000107C /* FocusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001005 /* FocusError.swift */; };
+		F0000000000000000000107D /* FocusFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001006 /* FocusFileIO.swift */; };
+		F0000000000000000000107E /* FocusIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001007 /* FocusIdentifiers.swift */; };
+		F0000000000000000000107F /* FocusLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001008 /* FocusLog.swift */; };
+		F00000000000000000001080 /* FocusPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001009 /* FocusPreset.swift */; };
+		F00000000000000000001081 /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100A /* FocusSession.swift */; };
+		F00000000000000000001082 /* FocusSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100B /* FocusSessionService.swift */; };
+		F00000000000000000001083 /* FocusStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100C /* FocusStats.swift */; };
+		F00000000000000000001084 /* FocusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100D /* FocusStore.swift */; };
+		F00000000000000000001085 /* MonitorPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100E /* MonitorPolicy.swift */; };
+		F00000000000000000001086 /* PersistedSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100F /* PersistedSelection.swift */; };
+		F00000000000000000001087 /* ScheduleWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001010 /* ScheduleWindow.swift */; };
+		F00000000000000000001088 /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001011 /* ServiceProtocols.swift */; };
+		F00000000000000000001089 /* SessionClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001012 /* SessionClock.swift */; };
+		F0000000000000000000108A /* SessionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001013 /* SessionPhase.swift */; };
+		F0000000000000000000108B /* SessionRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001014 /* SessionRecovery.swift */; };
+		F0000000000000000000108C /* SessionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001015 /* SessionStateMachine.swift */; };
+		F0000000000000000000108D /* ShieldCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001016 /* ShieldCopy.swift */; };
+		F0000000000000000000108E /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001017 /* AppModel.swift */; };
+		F0000000000000000000108F /* FocusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000101A /* FocusApp.swift */; };
+		F00000000000000000001090 /* ActiveFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000101B /* ActiveFocusView.swift */; };
+		F00000000000000000001091 /* FocusCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000101E /* FocusCompleteView.swift */; };
+		F00000000000000000001092 /* FocusSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001020 /* FocusSetupView.swift */; };
+		F00000000000000000001093 /* SelectionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001022 /* SelectionList.swift */; };
+		F00000000000000000001094 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001023 /* HistoryView.swift */; };
+		F00000000000000000001095 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001025 /* HomeView.swift */; };
+		F00000000000000000001096 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001027 /* OnboardingView.swift */; };
+		F00000000000000000001097 /* FocusChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001029 /* FocusChrome.swift */; };
+		F00000000000000000001098 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000102B /* RootView.swift */; };
+		F00000000000000000001099 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000102C /* SettingsView.swift */; };
+		F0000000000000000000109A /* DeviceActivityScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000102E /* DeviceActivityScheduler.swift */; };
+		F0000000000000000000109B /* FamilySelectionMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001030 /* FamilySelectionMapping.swift */; };
+		F0000000000000000000109C /* ScreenTimeAuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001031 /* ScreenTimeAuthorizationService.swift */; };
+		F0000000000000000000109D /* SystemClients.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001032 /* SystemClients.swift */; };
+		F0000000000000000000109E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001042 /* Assets.xcassets */; };
+		F0000000000000000000109F /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001040 /* PrivacyInfo.xcprivacy */; };
+		F000000000000000000010A0 /* BlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001001 /* BlockingService.swift */; };
+		F000000000000000000010A1 /* FocusDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001004 /* FocusDuration.swift */; };
+		F000000000000000000010A2 /* FocusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001005 /* FocusError.swift */; };
+		F000000000000000000010A3 /* FocusFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001006 /* FocusFileIO.swift */; };
+		F000000000000000000010A4 /* FocusIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001007 /* FocusIdentifiers.swift */; };
+		F000000000000000000010A5 /* FocusLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001008 /* FocusLog.swift */; };
+		F000000000000000000010A6 /* FocusPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001009 /* FocusPreset.swift */; };
+		F000000000000000000010A7 /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100A /* FocusSession.swift */; };
+		F000000000000000000010A8 /* FocusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100D /* FocusStore.swift */; };
+		F000000000000000000010A9 /* MonitorPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100E /* MonitorPolicy.swift */; };
+		F000000000000000000010AA /* PersistedSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100F /* PersistedSelection.swift */; };
+		F000000000000000000010AB /* SessionClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001012 /* SessionClock.swift */; };
+		F000000000000000000010AC /* SessionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001013 /* SessionPhase.swift */; };
+		F000000000000000000010AD /* SessionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001015 /* SessionStateMachine.swift */; };
+		F000000000000000000010AE /* FocusDeviceActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001033 /* FocusDeviceActivityMonitor.swift */; };
+		F000000000000000000010AF /* FocusDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001004 /* FocusDuration.swift */; };
+		F000000000000000000010B0 /* FocusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001005 /* FocusError.swift */; };
+		F000000000000000000010B1 /* FocusFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001006 /* FocusFileIO.swift */; };
+		F000000000000000000010B2 /* FocusIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001007 /* FocusIdentifiers.swift */; };
+		F000000000000000000010B3 /* FocusLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001008 /* FocusLog.swift */; };
+		F000000000000000000010B4 /* FocusPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001009 /* FocusPreset.swift */; };
+		F000000000000000000010B5 /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100A /* FocusSession.swift */; };
+		F000000000000000000010B6 /* FocusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100D /* FocusStore.swift */; };
+		F000000000000000000010B7 /* PersistedSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100F /* PersistedSelection.swift */; };
+		F000000000000000000010B8 /* SessionClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001012 /* SessionClock.swift */; };
+		F000000000000000000010B9 /* SessionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001013 /* SessionPhase.swift */; };
+		F000000000000000000010BA /* SessionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001015 /* SessionStateMachine.swift */; };
+		F000000000000000000010BB /* ShieldCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001016 /* ShieldCopy.swift */; };
+		F000000000000000000010BC /* FocusShieldConfigurationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001035 /* FocusShieldConfigurationDataSource.swift */; };
+		F000000000000000000010BD /* FocusShieldActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001037 /* FocusShieldActionDelegate.swift */; };
+		F000000000000000000010BE /* BlockingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001001 /* BlockingService.swift */; };
+		F000000000000000000010BF /* FocusDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001004 /* FocusDuration.swift */; };
+		F000000000000000000010C0 /* FocusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001005 /* FocusError.swift */; };
+		F000000000000000000010C1 /* FocusFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001006 /* FocusFileIO.swift */; };
+		F000000000000000000010C2 /* FocusIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001007 /* FocusIdentifiers.swift */; };
+		F000000000000000000010C3 /* FocusLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001008 /* FocusLog.swift */; };
+		F000000000000000000010C4 /* FocusPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001009 /* FocusPreset.swift */; };
+		F000000000000000000010C5 /* FocusSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100A /* FocusSession.swift */; };
+		F000000000000000000010C6 /* FocusSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100B /* FocusSessionService.swift */; };
+		F000000000000000000010C7 /* FocusStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100C /* FocusStats.swift */; };
+		F000000000000000000010C8 /* FocusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100D /* FocusStore.swift */; };
+		F000000000000000000010C9 /* MonitorPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100E /* MonitorPolicy.swift */; };
+		F000000000000000000010CA /* PersistedSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000100F /* PersistedSelection.swift */; };
+		F000000000000000000010CB /* ScheduleWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001010 /* ScheduleWindow.swift */; };
+		F000000000000000000010CC /* ServiceProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001011 /* ServiceProtocols.swift */; };
+		F000000000000000000010CD /* SessionClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001012 /* SessionClock.swift */; };
+		F000000000000000000010CE /* SessionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001013 /* SessionPhase.swift */; };
+		F000000000000000000010CF /* SessionRecovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001014 /* SessionRecovery.swift */; };
+		F000000000000000000010D0 /* SessionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001015 /* SessionStateMachine.swift */; };
+		F000000000000000000010D1 /* ShieldCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001016 /* ShieldCopy.swift */; };
+		F000000000000000000010D2 /* FocusSessionServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001039 /* FocusSessionServiceTests.swift */; };
+		F000000000000000000010D3 /* FocusStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000103B /* FocusStoreTests.swift */; };
+		F000000000000000000010D4 /* SessionLogicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0000000000000000000103C /* SessionLogicTests.swift */; };
+		F00000000000000000001077 /* FocusMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0000000000000000000104D /* FocusMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, CodeSignOnCopy, ); }; };
+		F00000000000000000001078 /* FocusShieldConfiguration.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0000000000000000000104E /* FocusShieldConfiguration.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, CodeSignOnCopy, ); }; };
+		F00000000000000000001079 /* FocusShieldAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F0000000000000000000104F /* FocusShieldAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F00000000000000000001001 /* BlockingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingService.swift; sourceTree = "<group>"; };
+		F00000000000000000001004 /* FocusDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusDuration.swift; sourceTree = "<group>"; };
+		F00000000000000000001005 /* FocusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusError.swift; sourceTree = "<group>"; };
+		F00000000000000000001006 /* FocusFileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusFileIO.swift; sourceTree = "<group>"; };
+		F00000000000000000001007 /* FocusIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIdentifiers.swift; sourceTree = "<group>"; };
+		F00000000000000000001008 /* FocusLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusLog.swift; sourceTree = "<group>"; };
+		F00000000000000000001009 /* FocusPreset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusPreset.swift; sourceTree = "<group>"; };
+		F0000000000000000000100A /* FocusSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSession.swift; sourceTree = "<group>"; };
+		F0000000000000000000100B /* FocusSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionService.swift; sourceTree = "<group>"; };
+		F0000000000000000000100C /* FocusStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusStats.swift; sourceTree = "<group>"; };
+		F0000000000000000000100D /* FocusStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusStore.swift; sourceTree = "<group>"; };
+		F0000000000000000000100E /* MonitorPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonitorPolicy.swift; sourceTree = "<group>"; };
+		F0000000000000000000100F /* PersistedSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistedSelection.swift; sourceTree = "<group>"; };
+		F00000000000000000001010 /* ScheduleWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleWindow.swift; sourceTree = "<group>"; };
+		F00000000000000000001011 /* ServiceProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocols.swift; sourceTree = "<group>"; };
+		F00000000000000000001012 /* SessionClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionClock.swift; sourceTree = "<group>"; };
+		F00000000000000000001013 /* SessionPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionPhase.swift; sourceTree = "<group>"; };
+		F00000000000000000001014 /* SessionRecovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRecovery.swift; sourceTree = "<group>"; };
+		F00000000000000000001015 /* SessionStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStateMachine.swift; sourceTree = "<group>"; };
+		F00000000000000000001016 /* ShieldCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldCopy.swift; sourceTree = "<group>"; };
+		F00000000000000000001017 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		F0000000000000000000101A /* FocusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusApp.swift; sourceTree = "<group>"; };
+		F0000000000000000000101B /* ActiveFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveFocusView.swift; sourceTree = "<group>"; };
+		F0000000000000000000101E /* FocusCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusCompleteView.swift; sourceTree = "<group>"; };
+		F00000000000000000001020 /* FocusSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSetupView.swift; sourceTree = "<group>"; };
+		F00000000000000000001022 /* SelectionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionList.swift; sourceTree = "<group>"; };
+		F00000000000000000001023 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F00000000000000000001025 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F00000000000000000001027 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F00000000000000000001029 /* FocusChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusChrome.swift; sourceTree = "<group>"; };
+		F0000000000000000000102B /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		F0000000000000000000102C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F0000000000000000000102E /* DeviceActivityScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityScheduler.swift; sourceTree = "<group>"; };
+		F00000000000000000001030 /* FamilySelectionMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilySelectionMapping.swift; sourceTree = "<group>"; };
+		F00000000000000000001031 /* ScreenTimeAuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeAuthorizationService.swift; sourceTree = "<group>"; };
+		F00000000000000000001032 /* SystemClients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClients.swift; sourceTree = "<group>"; };
+		F00000000000000000001033 /* FocusDeviceActivityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusDeviceActivityMonitor.swift; sourceTree = "<group>"; };
+		F00000000000000000001035 /* FocusShieldConfigurationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusShieldConfigurationDataSource.swift; sourceTree = "<group>"; };
+		F00000000000000000001037 /* FocusShieldActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusShieldActionDelegate.swift; sourceTree = "<group>"; };
+		F00000000000000000001039 /* FocusSessionServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionServiceTests.swift; sourceTree = "<group>"; };
+		F0000000000000000000103B /* FocusStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusStoreTests.swift; sourceTree = "<group>"; };
+		F0000000000000000000103C /* SessionLogicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionLogicTests.swift; sourceTree = "<group>"; };
+		F0000000000000000000103D /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		F0000000000000000000103F /* Focus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Focus.entitlements; sourceTree = "<group>"; };
+		F00000000000000000001040 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		F00000000000000000001042 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F00000000000000000001043 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00000000000000000001044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F00000000000000000001045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0000000000000000000104C /* Focus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Focus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0000000000000000000104D /* FocusMonitor.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; includeInIndex = 0; path = FocusMonitor.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0000000000000000000104E /* FocusShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; includeInIndex = 0; path = FocusShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0000000000000000000104F /* FocusShieldAction.appex */ = {isa = PBXFileReference; explicitFileType = wrapper.app-extension; includeInIndex = 0; path = FocusShieldAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F00000000000000000001050 /* FocusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FocusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F00000000000000000001053 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0000000000000000000107A /* BlockingService.swift in Sources */,
+				F0000000000000000000107B /* FocusDuration.swift in Sources */,
+				F0000000000000000000107C /* FocusError.swift in Sources */,
+				F0000000000000000000107D /* FocusFileIO.swift in Sources */,
+				F0000000000000000000107E /* FocusIdentifiers.swift in Sources */,
+				F0000000000000000000107F /* FocusLog.swift in Sources */,
+				F00000000000000000001080 /* FocusPreset.swift in Sources */,
+				F00000000000000000001081 /* FocusSession.swift in Sources */,
+				F00000000000000000001082 /* FocusSessionService.swift in Sources */,
+				F00000000000000000001083 /* FocusStats.swift in Sources */,
+				F00000000000000000001084 /* FocusStore.swift in Sources */,
+				F00000000000000000001085 /* MonitorPolicy.swift in Sources */,
+				F00000000000000000001086 /* PersistedSelection.swift in Sources */,
+				F00000000000000000001087 /* ScheduleWindow.swift in Sources */,
+				F00000000000000000001088 /* ServiceProtocols.swift in Sources */,
+				F00000000000000000001089 /* SessionClock.swift in Sources */,
+				F0000000000000000000108A /* SessionPhase.swift in Sources */,
+				F0000000000000000000108B /* SessionRecovery.swift in Sources */,
+				F0000000000000000000108C /* SessionStateMachine.swift in Sources */,
+				F0000000000000000000108D /* ShieldCopy.swift in Sources */,
+				F0000000000000000000108E /* AppModel.swift in Sources */,
+				F0000000000000000000108F /* FocusApp.swift in Sources */,
+				F00000000000000000001090 /* ActiveFocusView.swift in Sources */,
+				F00000000000000000001091 /* FocusCompleteView.swift in Sources */,
+				F00000000000000000001092 /* FocusSetupView.swift in Sources */,
+				F00000000000000000001093 /* SelectionList.swift in Sources */,
+				F00000000000000000001094 /* HistoryView.swift in Sources */,
+				F00000000000000000001095 /* HomeView.swift in Sources */,
+				F00000000000000000001096 /* OnboardingView.swift in Sources */,
+				F00000000000000000001097 /* FocusChrome.swift in Sources */,
+				F00000000000000000001098 /* RootView.swift in Sources */,
+				F00000000000000000001099 /* SettingsView.swift in Sources */,
+				F0000000000000000000109A /* DeviceActivityScheduler.swift in Sources */,
+				F0000000000000000000109B /* FamilySelectionMapping.swift in Sources */,
+				F0000000000000000000109C /* ScreenTimeAuthorizationService.swift in Sources */,
+				F0000000000000000000109D /* SystemClients.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F00000000000000000001054 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F000000000000000000010A0 /* BlockingService.swift in Sources */,
+				F000000000000000000010A1 /* FocusDuration.swift in Sources */,
+				F000000000000000000010A2 /* FocusError.swift in Sources */,
+				F000000000000000000010A3 /* FocusFileIO.swift in Sources */,
+				F000000000000000000010A4 /* FocusIdentifiers.swift in Sources */,
+				F000000000000000000010A5 /* FocusLog.swift in Sources */,
+				F000000000000000000010A6 /* FocusPreset.swift in Sources */,
+				F000000000000000000010A7 /* FocusSession.swift in Sources */,
+				F000000000000000000010A8 /* FocusStore.swift in Sources */,
+				F000000000000000000010A9 /* MonitorPolicy.swift in Sources */,
+				F000000000000000000010AA /* PersistedSelection.swift in Sources */,
+				F000000000000000000010AB /* SessionClock.swift in Sources */,
+				F000000000000000000010AC /* SessionPhase.swift in Sources */,
+				F000000000000000000010AD /* SessionStateMachine.swift in Sources */,
+				F000000000000000000010AE /* FocusDeviceActivityMonitor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F00000000000000000001055 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F000000000000000000010AF /* FocusDuration.swift in Sources */,
+				F000000000000000000010B0 /* FocusError.swift in Sources */,
+				F000000000000000000010B1 /* FocusFileIO.swift in Sources */,
+				F000000000000000000010B2 /* FocusIdentifiers.swift in Sources */,
+				F000000000000000000010B3 /* FocusLog.swift in Sources */,
+				F000000000000000000010B4 /* FocusPreset.swift in Sources */,
+				F000000000000000000010B5 /* FocusSession.swift in Sources */,
+				F000000000000000000010B6 /* FocusStore.swift in Sources */,
+				F000000000000000000010B7 /* PersistedSelection.swift in Sources */,
+				F000000000000000000010B8 /* SessionClock.swift in Sources */,
+				F000000000000000000010B9 /* SessionPhase.swift in Sources */,
+				F000000000000000000010BA /* SessionStateMachine.swift in Sources */,
+				F000000000000000000010BB /* ShieldCopy.swift in Sources */,
+				F000000000000000000010BC /* FocusShieldConfigurationDataSource.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F00000000000000000001056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F000000000000000000010BD /* FocusShieldActionDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F00000000000000000001057 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F000000000000000000010BE /* BlockingService.swift in Sources */,
+				F000000000000000000010BF /* FocusDuration.swift in Sources */,
+				F000000000000000000010C0 /* FocusError.swift in Sources */,
+				F000000000000000000010C1 /* FocusFileIO.swift in Sources */,
+				F000000000000000000010C2 /* FocusIdentifiers.swift in Sources */,
+				F000000000000000000010C3 /* FocusLog.swift in Sources */,
+				F000000000000000000010C4 /* FocusPreset.swift in Sources */,
+				F000000000000000000010C5 /* FocusSession.swift in Sources */,
+				F000000000000000000010C6 /* FocusSessionService.swift in Sources */,
+				F000000000000000000010C7 /* FocusStats.swift in Sources */,
+				F000000000000000000010C8 /* FocusStore.swift in Sources */,
+				F000000000000000000010C9 /* MonitorPolicy.swift in Sources */,
+				F000000000000000000010CA /* PersistedSelection.swift in Sources */,
+				F000000000000000000010CB /* ScheduleWindow.swift in Sources */,
+				F000000000000000000010CC /* ServiceProtocols.swift in Sources */,
+				F000000000000000000010CD /* SessionClock.swift in Sources */,
+				F000000000000000000010CE /* SessionPhase.swift in Sources */,
+				F000000000000000000010CF /* SessionRecovery.swift in Sources */,
+				F000000000000000000010D0 /* SessionStateMachine.swift in Sources */,
+				F000000000000000000010D1 /* ShieldCopy.swift in Sources */,
+				F000000000000000000010D2 /* FocusSessionServiceTests.swift in Sources */,
+				F000000000000000000010D3 /* FocusStoreTests.swift in Sources */,
+				F000000000000000000010D4 /* SessionLogicTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F00000000000000000001058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F00000000000000000001059 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0000000000000000000105A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0000000000000000000105B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0000000000000000000105C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F0000000000000000000105D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0000000000000000000109E /* Assets.xcassets in Resources */,
+				F0000000000000000000109F /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F0000000000000000000105E /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F00000000000000000001077 /* FocusMonitor.appex in Embed Foundation Extensions */,
+				F00000000000000000001078 /* FocusShieldConfiguration.appex in Embed Foundation Extensions */,
+				F00000000000000000001079 /* FocusShieldAction.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXGroup section */
+		F00000000000000000001051 = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000103E /* Config */,
+				F00000000000000000001002 /* Shared */,
+				F00000000000000000001019 /* Focus */,
+				F00000000000000000001034 /* FocusMonitor */,
+				F00000000000000000001036 /* FocusShieldConfiguration */,
+				F00000000000000000001038 /* FocusShieldAction */,
+				F0000000000000000000103A /* FocusTests */,
+				F00000000000000000001052 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F00000000000000000001052 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000104C /* Focus.app */,
+				F0000000000000000000104D /* FocusMonitor.appex */,
+				F0000000000000000000104E /* FocusShieldConfiguration.appex */,
+				F0000000000000000000104F /* FocusShieldAction.appex */,
+				F00000000000000000001050 /* FocusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001002 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001001 /* BlockingService.swift */,
+				F00000000000000000001004 /* FocusDuration.swift */,
+				F00000000000000000001005 /* FocusError.swift */,
+				F00000000000000000001006 /* FocusFileIO.swift */,
+				F00000000000000000001007 /* FocusIdentifiers.swift */,
+				F00000000000000000001008 /* FocusLog.swift */,
+				F00000000000000000001009 /* FocusPreset.swift */,
+				F0000000000000000000100A /* FocusSession.swift */,
+				F0000000000000000000100B /* FocusSessionService.swift */,
+				F0000000000000000000100C /* FocusStats.swift */,
+				F0000000000000000000100D /* FocusStore.swift */,
+				F0000000000000000000100E /* MonitorPolicy.swift */,
+				F0000000000000000000100F /* PersistedSelection.swift */,
+				F00000000000000000001010 /* ScheduleWindow.swift */,
+				F00000000000000000001011 /* ServiceProtocols.swift */,
+				F00000000000000000001012 /* SessionClock.swift */,
+				F00000000000000000001013 /* SessionPhase.swift */,
+				F00000000000000000001014 /* SessionRecovery.swift */,
+				F00000000000000000001015 /* SessionStateMachine.swift */,
+				F00000000000000000001016 /* ShieldCopy.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001018 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001017 /* AppModel.swift */,
+				F0000000000000000000101A /* FocusApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001019 /* Focus */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001018 /* App */,
+				F0000000000000000000101D /* Features */,
+				F00000000000000000001041 /* Resources */,
+				F0000000000000000000102F /* Services */,
+			);
+			path = Focus;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000101C /* ActiveFocus */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000101B /* ActiveFocusView.swift */,
+			);
+			path = ActiveFocus;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000101D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000101C /* ActiveFocus */,
+				F0000000000000000000101F /* FocusComplete */,
+				F00000000000000000001021 /* FocusSetup */,
+				F00000000000000000001024 /* History */,
+				F00000000000000000001026 /* Home */,
+				F00000000000000000001028 /* Onboarding */,
+				F0000000000000000000102A /* Root */,
+				F0000000000000000000102D /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000101F /* FocusComplete */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000101E /* FocusCompleteView.swift */,
+			);
+			path = FocusComplete;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001021 /* FocusSetup */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001020 /* FocusSetupView.swift */,
+				F00000000000000000001022 /* SelectionList.swift */,
+			);
+			path = FocusSetup;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001024 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001023 /* HistoryView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001026 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001025 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001028 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001027 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000102A /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001029 /* FocusChrome.swift */,
+				F0000000000000000000102B /* RootView.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000102D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000102C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000102F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000102E /* DeviceActivityScheduler.swift */,
+				F00000000000000000001030 /* FamilySelectionMapping.swift */,
+				F00000000000000000001031 /* ScreenTimeAuthorizationService.swift */,
+				F00000000000000000001032 /* SystemClients.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001034 /* FocusMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001033 /* FocusDeviceActivityMonitor.swift */,
+				F00000000000000000001043 /* Info.plist */,
+			);
+			path = FocusMonitor;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001036 /* FocusShieldConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001035 /* FocusShieldConfigurationDataSource.swift */,
+				F00000000000000000001044 /* Info.plist */,
+			);
+			path = FocusShieldConfiguration;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001038 /* FocusShieldAction */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001037 /* FocusShieldActionDelegate.swift */,
+				F00000000000000000001045 /* Info.plist */,
+			);
+			path = FocusShieldAction;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000103A /* FocusTests */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001039 /* FocusSessionServiceTests.swift */,
+				F0000000000000000000103B /* FocusStoreTests.swift */,
+				F0000000000000000000103C /* SessionLogicTests.swift */,
+			);
+			path = FocusTests;
+			sourceTree = "<group>";
+		};
+		F0000000000000000000103E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F0000000000000000000103F /* Focus.entitlements */,
+				F0000000000000000000103D /* Shared.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F00000000000000000001041 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F00000000000000000001042 /* Assets.xcassets */,
+				F00000000000000000001040 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F00000000000000000001047 /* Focus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000001060 /* Build configuration list for PBXNativeTarget "Focus" */;
+			buildPhases = (
+				F00000000000000000001053 /* Sources */,
+				F00000000000000000001058 /* Frameworks */,
+				F0000000000000000000105D /* Resources */,
+				F0000000000000000000105E /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F00000000000000000001074,
+				F00000000000000000001075,
+				F00000000000000000001076,
+			);
+			name = Focus;
+			productName = Focus;
+			productReference = F0000000000000000000104C /* Focus.app */;
+			productType = com.apple.product-type.application;
+		};
+		F00000000000000000001048 /* FocusMonitor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000001061 /* Build configuration list for PBXNativeTarget "FocusMonitor" */;
+			buildPhases = (
+				F00000000000000000001054 /* Sources */,
+				F00000000000000000001059 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusMonitor;
+			productName = FocusMonitor;
+			productReference = F0000000000000000000104D /* FocusMonitor.appex */;
+			productType = com.apple.product-type.app-extension;
+		};
+		F00000000000000000001049 /* FocusShieldConfiguration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000001062 /* Build configuration list for PBXNativeTarget "FocusShieldConfiguration" */;
+			buildPhases = (
+				F00000000000000000001055 /* Sources */,
+				F0000000000000000000105A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusShieldConfiguration;
+			productName = FocusShieldConfiguration;
+			productReference = F0000000000000000000104E /* FocusShieldConfiguration.appex */;
+			productType = com.apple.product-type.app-extension;
+		};
+		F0000000000000000000104A /* FocusShieldAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000001063 /* Build configuration list for PBXNativeTarget "FocusShieldAction" */;
+			buildPhases = (
+				F00000000000000000001056 /* Sources */,
+				F0000000000000000000105B /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusShieldAction;
+			productName = FocusShieldAction;
+			productReference = F0000000000000000000104F /* FocusShieldAction.appex */;
+			productType = com.apple.product-type.app-extension;
+		};
+		F0000000000000000000104B /* FocusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F00000000000000000001064 /* Build configuration list for PBXNativeTarget "FocusTests" */;
+			buildPhases = (
+				F00000000000000000001057 /* Sources */,
+				F0000000000000000000105C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusTests;
+			productName = FocusTests;
+			productReference = F00000000000000000001050 /* FocusTests.xctest */;
+			productType = com.apple.product-type.bundle.unit-test;
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F00000000000000000001046 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					F00000000000000000001047 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					F00000000000000000001048 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					F00000000000000000001049 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					F0000000000000000000104A = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					F0000000000000000000104B = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = F0000000000000000000105F /* Build configuration list for PBXProject "Focus" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F00000000000000000001051;
+			productRefGroup = F00000000000000000001052 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F00000000000000000001047 /* Focus */,
+				F00000000000000000001048 /* FocusMonitor */,
+				F00000000000000000001049 /* FocusShieldConfiguration */,
+				F0000000000000000000104A /* FocusShieldAction */,
+				F0000000000000000000104B /* FocusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXContainerItemProxy section */
+		F00000000000000000001071 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F00000000000000000001046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F00000000000000000001048;
+			remoteInfo = FocusMonitor;
+		};
+		F00000000000000000001072 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F00000000000000000001046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F00000000000000000001049;
+			remoteInfo = FocusShieldConfiguration;
+		};
+		F00000000000000000001073 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F00000000000000000001046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0000000000000000000104A;
+			remoteInfo = FocusShieldAction;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		F00000000000000000001074 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F00000000000000000001048 /* FocusMonitor */;
+			targetProxy = F00000000000000000001071 /* PBXContainerItemProxy */;
+		};
+		F00000000000000000001075 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F00000000000000000001049 /* FocusShieldConfiguration */;
+			targetProxy = F00000000000000000001072 /* PBXContainerItemProxy */;
+		};
+		F00000000000000000001076 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0000000000000000000104A /* FocusShieldAction */;
+			targetProxy = F00000000000000000001073 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F00000000000000000001065 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0000000000000000000103D /* Shared.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1 $(inherited)";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F00000000000000000001066 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0000000000000000000103D /* Shared.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf-with-dsym;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F00000000000000000001067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Focus;
+				INFOPLIST_KEY_FocusAppGroupIdentifier = "$(FOCUS_APP_GROUP)";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSFamilyControlsUsageDescription = "Focus uses Screen Time to temporarily restrict the apps you choose during a focus session. Selections stay on this device.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F00000000000000000001068 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Focus;
+				INFOPLIST_KEY_FocusAppGroupIdentifier = "$(FOCUS_APP_GROUP)";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSFamilyControlsUsageDescription = "Focus uses Screen Time to temporarily restrict the apps you choose during a focus session. Selections stay on this device.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F00000000000000000001069 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID).Monitor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F0000000000000000000106A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusMonitor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID).Monitor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F0000000000000000000106B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusShieldConfiguration/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID).ShieldConfiguration";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F0000000000000000000106C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusShieldConfiguration/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID).ShieldConfiguration";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F0000000000000000000106D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusShieldAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID).ShieldAction";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F0000000000000000000106E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Config/Focus.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = FocusShieldAction/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID).ShieldAction";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F0000000000000000000106F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID)Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "";
+			};
+			name = Debug;
+		};
+		F00000000000000000001070 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(FOCUS_BUNDLE_ID)Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0000000000000000000105F /* Build configuration list for PBXProject "Focus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000001065 /* Debug */,
+				F00000000000000000001066 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00000000000000000001060 /* Build configuration list for PBXNativeTarget "Focus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000001067 /* Debug */,
+				F00000000000000000001068 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00000000000000000001061 /* Build configuration list for PBXNativeTarget "FocusMonitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00000000000000000001069 /* Debug */,
+				F0000000000000000000106A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00000000000000000001062 /* Build configuration list for PBXNativeTarget "FocusShieldConfiguration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0000000000000000000106B /* Debug */,
+				F0000000000000000000106C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00000000000000000001063 /* Build configuration list for PBXNativeTarget "FocusShieldAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0000000000000000000106D /* Debug */,
+				F0000000000000000000106E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F00000000000000000001064 /* Build configuration list for PBXNativeTarget "FocusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0000000000000000000106F /* Debug */,
+				F00000000000000000001070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F00000000000000000001046 /* Project object */;
+}
