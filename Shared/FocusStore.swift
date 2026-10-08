@@ -4,6 +4,10 @@ final class FocusStore: @unchecked Sendable {
     let directory: URL
     let usesAppGroup: Bool
     private let coordinator = NSFileCoordinator(filePresenter: nil)
+    private let coordinationGate = NSLock()
+    private var coordinationDepth = 0
+    private var coordinationOwner: Thread?
+    private var coordinatedDirectory: URL?
 
     init(directory: URL, usesAppGroup: Bool) throws {
         self.directory = directory
@@ -176,6 +180,30 @@ final class FocusStore: @unchecked Sendable {
         }
     }
 
+    func loadMonitorCursor() throws -> MonitorCursor? {
+        try coordinate(writing: false) { directory in
+            try FocusFileIO.read(MonitorCursor.self, name: FocusFiles.monitorCursor, in: directory)
+        }
+    }
+
+    func saveMonitorCursor(_ cursor: MonitorCursor?) throws {
+        try coordinate(writing: true) { directory in
+            if let cursor {
+                try FocusFileIO.write(cursor, name: FocusFiles.monitorCursor, in: directory)
+            } else {
+                try FocusFileIO.remove(name: FocusFiles.monitorCursor, in: directory)
+            }
+        }
+    }
+
+    /// Serializes session writes and Managed Settings changes across the app and its extensions.
+    /// Nested calls on the same thread reuse the outer file coordination instead of deadlocking.
+    func exclusively<T>(_ work: () throws -> T) throws -> T {
+        try coordinate(writing: true) { _ in
+            try work()
+        }
+    }
+
     func resetInterruptions(for sessionID: UUID) throws {
         try coordinate(writing: true) { directory in
             let ledger = InterruptionLedger(sessionID: sessionID, count: 0, lastRecordedAt: nil)
@@ -213,16 +241,37 @@ final class FocusStore: @unchecked Sendable {
     }
 
     private func coordinate<T>(writing: Bool, _ work: (URL) throws -> T) throws -> T {
+        coordinationGate.lock()
+        if coordinationDepth > 0, coordinationOwner === Thread.current {
+            let url = coordinatedDirectory ?? directory
+            coordinationGate.unlock()
+            return try work(url)
+        }
+        coordinationGate.unlock()
+
         var result: Result<T, Error>?
         var coordinationError: NSError?
+        let accessor = { (url: URL) in
+            self.coordinationGate.lock()
+            self.coordinationDepth += 1
+            self.coordinationOwner = Thread.current
+            self.coordinatedDirectory = url
+            self.coordinationGate.unlock()
+            defer {
+                self.coordinationGate.lock()
+                self.coordinationDepth -= 1
+                if self.coordinationDepth == 0 {
+                    self.coordinationOwner = nil
+                    self.coordinatedDirectory = nil
+                }
+                self.coordinationGate.unlock()
+            }
+            result = Result { try work(url) }
+        }
         if writing {
-            coordinator.coordinate(writingItemAt: directory, options: [], error: &coordinationError) { url in
-                result = Result { try work(url) }
-            }
+            coordinator.coordinate(writingItemAt: directory, options: [], error: &coordinationError, byAccessor: accessor)
         } else {
-            coordinator.coordinate(readingItemAt: directory, options: [], error: &coordinationError) { url in
-                result = Result { try work(url) }
-            }
+            coordinator.coordinate(readingItemAt: directory, options: [], error: &coordinationError, byAccessor: accessor)
         }
         if let result {
             return try result.get()

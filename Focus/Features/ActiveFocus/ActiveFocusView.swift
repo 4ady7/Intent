@@ -7,12 +7,16 @@ struct ActiveFocusView: View {
     @ScaledMetric(relativeTo: .largeTitle) private var timerSize: CGFloat = 64
     @State private var confirmEnd = false
     @State private var endError: String?
+    @State private var isEnding = false
 
     var body: some View {
         TimelineView(.periodic(from: .now, by: 1)) { context in
             let remaining = model.remaining(at: context.date)
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
+                    if let banner = model.banner {
+                        BannerView(message: banner) { model.dismissBanner() }
+                    }
                     VStack(alignment: .leading, spacing: 8) {
                         Text(model.activeSession?.name ?? "Focus")
                             .font(.title2.weight(.semibold))
@@ -59,7 +63,7 @@ struct ActiveFocusView: View {
         .safeAreaInset(edge: .bottom) {
             Button("End Focus") { confirmEnd = true }
                 .buttonStyle(FocusSecondaryButtonStyle())
-                .disabled(model.isWorking)
+                .disabled(model.isWorking || isEnding)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 12)
                 .background(.background)
@@ -67,6 +71,8 @@ struct ActiveFocusView: View {
         }
         .confirmationDialog("End Focus?", isPresented: $confirmEnd, titleVisibility: .visible) {
             Button("End Session", role: .destructive) {
+                guard !isEnding else { return }
+                isEnding = true
                 Task { await end() }
             }
             Button("Keep Focusing", role: .cancel) {}
@@ -97,7 +103,10 @@ struct ActiveFocusView: View {
         do {
             try await model.endSession()
             dismiss()
+        } catch FocusError.noActiveSession where model.activeSession == nil {
+            dismiss()
         } catch {
+            isEnding = false
             endError = model.message(for: error)
         }
     }

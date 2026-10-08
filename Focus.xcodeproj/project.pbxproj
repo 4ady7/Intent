@@ -60,6 +60,7 @@
 		F000000000000000000010AC /* SessionPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001013 /* SessionPhase.swift */; };
 		F000000000000000000010AD /* SessionStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001015 /* SessionStateMachine.swift */; };
 		F000000000000000000010AE /* FocusDeviceActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001033 /* FocusDeviceActivityMonitor.swift */; };
+		F000000000000000000010D5 /* ScheduleWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001010 /* ScheduleWindow.swift */; };
 		F000000000000000000010AF /* FocusDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001004 /* FocusDuration.swift */; };
 		F000000000000000000010B0 /* FocusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001005 /* FocusError.swift */; };
 		F000000000000000000010B1 /* FocusFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00000000000000000001006 /* FocusFileIO.swift */; };
@@ -218,6 +219,7 @@
 				F000000000000000000010A7 /* FocusSession.swift in Sources */,
 				F000000000000000000010A8 /* FocusStore.swift in Sources */,
 				F000000000000000000010A9 /* MonitorPolicy.swift in Sources */,
+				F000000000000000000010D5 /* ScheduleWindow.swift in Sources */,
 				F000000000000000000010AA /* PersistedSelection.swift in Sources */,
 				F000000000000000000010AB /* SessionClock.swift in Sources */,
 				F000000000000000000010AC /* SessionPhase.swift in Sources */,

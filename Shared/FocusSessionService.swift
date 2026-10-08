@@ -83,11 +83,48 @@ final class FocusSessionService {
         if phase == .active {
             await handleAuthorizationChange()
         }
-        guard activeSession != nil || (try? store.loadActive()) != nil else {
+        if phase != .active && phase != .ending {
+            let stored: FocusSession?
+            do {
+                stored = try store.loadActive()
+            } catch FocusError.couldNotRestoreSession {
+                note(FocusError.couldNotRestoreSession)
+                clearLeftovers()
+                activeSession = nil
+                phase = .idle
+                return
+            } catch {
+                note(error)
+                return
+            }
+            guard activeSession != nil || stored != nil else {
+                clearLeftovers()
+                return
+            }
+            await perform(SessionRecovery.action(for: stored, now: clock()), stored: stored)
+            return
+        }
+        let stored: FocusSession?
+        do {
+            stored = try store.loadActive()
+        } catch FocusError.couldNotRestoreSession {
+            if let session = activeSession, session.phase == .active {
+                try? store.saveActive(session)
+            }
+            return
+        } catch {
+            note(error)
+            return
+        }
+        if stored == nil, let current = activeSession, current.phase == .active || current.phase == .ending {
+            await adoptFinishedSession()
+            return
+        }
+        guard stored != nil || activeSession != nil else {
             clearLeftovers()
             return
         }
-        await perform(SessionRecovery.action(for: try? store.loadActive(), now: clock()), stored: try? store.loadActive())
+        await perform(SessionRecovery.action(for: stored ?? activeSession, now: clock()), stored: stored ?? activeSession)
     }
 
     func beginConfiguring() throws {
@@ -144,8 +181,17 @@ final class FocusSessionService {
 
         do {
             scheduler.stopAll()
-            try store.saveActive(session)
-            try restrictions.apply(request.selection)
+            try exclusive {
+                try self.store.saveActive(session)
+                do {
+                    try self.restrictions.apply(request.selection)
+                } catch {
+                    try? self.store.saveActive(nil)
+                    try? self.restrictions.clear()
+                    throw error
+                }
+                try self.store.saveMonitorCursor(nil)
+            }
             try scheduler.start(sessionID: session.id, at: now, duration: request.duration)
             session.phase = try SessionStateMachine.transition(from: .starting, to: .active)
             try store.saveActive(session)
@@ -173,29 +219,36 @@ final class FocusSessionService {
         session.requestedOutcome = .cancelled
         phase = .ending
         activeSession = session
+        scheduler.stop(sessionID: session.id)
+        let finished: FocusSession?
         do {
-            try store.saveActive(session)
-            guard let finished = try store.completeActive(id: session.id, at: now, outcome: .cancelled) else {
-                throw FocusError.persistenceFailed
+            finished = try exclusive {
+                guard let existing = try self.store.loadActive(), existing.id == session.id else {
+                    return nil
+                }
+                var ending = existing
+                ending.phase = session.phase
+                ending.requestedOutcome = .cancelled
+                try self.store.saveActive(ending)
+                return try self.store.completeActive(id: session.id, at: now, outcome: .cancelled)
             }
-            scheduler.stop(sessionID: session.id)
-            await notifier.cancelCompletion()
-            do {
-                try restrictions.clear()
-            } catch {
-                warning = error.localizedDescription
-            }
-            history = (try? store.loadHistory()) ?? history
-            pendingSummary = finished
-            activeSession = nil
-            phase = .idle
         } catch {
-            if phase == .ending {
-                phase = (try? SessionStateMachine.transition(from: .ending, to: .active)) ?? .active
-                activeSession?.phase = .active
+            if await recoverEndedSession(session.id) {
+                return
             }
             throw error
         }
+        if finished == nil, let stillThere = try? store.loadActive(), stillThere.id == session.id {
+            activeSession = stillThere
+            phase = stillThere.phase == .active ? .active : .ending
+            throw FocusError.persistenceFailed
+        }
+        await notifier.cancelCompletion()
+        clearRestrictionsKeepingAnyCurrentSession()
+        history = (try? store.loadHistory()) ?? history
+        pendingSummary = finished ?? (try? store.loadPendingSummary())
+        activeSession = nil
+        phase = .idle
     }
 
     func acknowledgeSummary() {
@@ -241,16 +294,64 @@ final class FocusSessionService {
     }
 
     func reconcile() async {
-        guard let session = activeSession ?? (try? store.loadActive()) else { return }
+        let stored: FocusSession?
+        do {
+            stored = try store.loadActive()
+        } catch FocusError.couldNotRestoreSession {
+            if let session = activeSession, session.phase == .active {
+                try? store.saveActive(session)
+            }
+            return
+        } catch {
+            note(error)
+            return
+        }
+        if stored == nil, let current = activeSession, current.phase == .active || current.phase == .ending {
+            await adoptFinishedSession()
+            return
+        }
+        guard let session = stored else { return }
         let action = SessionRecovery.action(for: session, now: clock())
-        if case .resume = action { return }
+        if case .resume = action {
+            if activeSession == nil {
+                activeSession = session
+                phase = .active
+                await resume(session)
+            }
+            return
+        }
         await perform(action, stored: session)
+    }
+
+    private func adoptFinishedSession() async {
+        history = (try? store.loadHistory()) ?? history
+        pendingSummary = try? store.loadPendingSummary()
+        clearLeftovers()
+        await notifier.cancelCompletion()
+        activeSession = nil
+        phase = .idle
     }
 
     private func finishStoredSession(_ stored: FocusSession?, outcome: SessionOutcome) async {
         if let stored {
-            pendingSummary = try? store.completeActive(id: stored.id, at: clock(), outcome: outcome)
+            do {
+                pendingSummary = try store.completeActive(id: stored.id, at: clock(), outcome: outcome)
+            } catch {
+                note(error)
+                activeSession = stored
+                phase = .active
+                warning = "The session is still running. We'll try to end it again."
+                return
+            }
             history = (try? store.loadHistory()) ?? history
+            if pendingSummary == nil {
+                pendingSummary = try? store.loadPendingSummary()
+            }
+            if pendingSummary == nil, (try? store.loadActive()) != nil {
+                activeSession = (try? store.loadActive()) ?? stored
+                phase = .active
+                return
+            }
         }
         clearLeftovers()
         await notifier.cancelCompletion()
@@ -262,7 +363,9 @@ final class FocusSessionService {
         let now = clock()
         let remaining = session.remaining(at: now)
         do {
-            try restrictions.apply(session.selection)
+            try exclusive {
+                try self.restrictions.apply(session.selection)
+            }
         } catch {
             warning = "We couldn't update your restrictions. We'll try again."
             FocusLog.session.error("Resume apply failed: \(error.localizedDescription, privacy: .public)")
@@ -287,7 +390,9 @@ final class FocusSessionService {
         switch authorizer.state {
         case .approved:
             if let session = activeSession {
-                try? restrictions.apply(session.selection)
+                try? exclusive {
+                    try self.restrictions.apply(session.selection)
+                }
             }
         case .denied, .unavailable:
             if let session = activeSession {
@@ -321,8 +426,15 @@ final class FocusSessionService {
 
     private func rollbackStart() {
         scheduler.stopAll()
-        try? restrictions.clear()
-        try? store.saveActive(nil)
+        do {
+            try exclusive {
+                try self.store.saveActive(nil)
+                try self.restrictions.clear()
+            }
+        } catch {
+            try? store.saveActive(nil)
+            try? restrictions.clear()
+        }
         activeSession = nil
         if phase == .starting {
             phase = (try? SessionStateMachine.transition(from: .starting, to: .idle)) ?? .idle
@@ -333,11 +445,48 @@ final class FocusSessionService {
 
     private func clearLeftovers() {
         scheduler.stopAll()
+        clearRestrictionsKeepingAnyCurrentSession()
+    }
+
+    private func clearRestrictionsKeepingAnyCurrentSession() {
         do {
-            try restrictions.clear()
+            try exclusive {
+                try self.restrictions.clear()
+                if let current = try? self.store.loadActive(),
+                   current.phase == .active || current.phase == .starting {
+                    try? self.restrictions.apply(current.selection)
+                }
+            }
         } catch {
             FocusLog.session.error("Could not clear restrictions: \(error.localizedDescription, privacy: .public)")
         }
+    }
+
+    private func exclusive<T>(_ work: @MainActor () throws -> T) throws -> T {
+        try store.exclusively {
+            try MainActor.assumeIsolated {
+                try work()
+            }
+        }
+    }
+
+    /// The monitor may have finished this session while End was in progress.
+    /// Returning true means memory now matches the store and the caller should stop.
+    private func recoverEndedSession(_ sessionID: UUID) async -> Bool {
+        if (try? store.loadActive()) == nil {
+            history = (try? store.loadHistory()) ?? history
+            pendingSummary = try? store.loadPendingSummary()
+            await notifier.cancelCompletion()
+            clearRestrictionsKeepingAnyCurrentSession()
+            activeSession = nil
+            phase = .idle
+            return history.contains { $0.id == sessionID } || pendingSummary?.id == sessionID
+        }
+        if let stored = try? store.loadActive() {
+            activeSession = stored
+            phase = stored.phase == .active ? .active : phase
+        }
+        return false
     }
 
     private func note(_ error: Error) {

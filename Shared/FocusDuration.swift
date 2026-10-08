@@ -27,7 +27,7 @@ enum FocusDurationFormat {
     static func compact(_ interval: TimeInterval) -> String {
         let total = max(0, Int(interval.rounded()))
         if total < 60 {
-            return "\(total) min"
+            return "\(total)s"
         }
         let hours = total / 3600
         let minutes = (total % 3600) / 60

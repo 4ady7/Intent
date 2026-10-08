@@ -64,3 +64,8 @@ struct InterruptionLedger: Codable, Equatable {
     var count: Int
     var lastRecordedAt: Date?
 }
+
+struct MonitorCursor: Codable, Equatable {
+    var sessionID: UUID
+    var earlyReschedules: Int
+}

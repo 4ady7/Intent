@@ -49,6 +49,8 @@ final class SessionLogicTests: XCTestCase {
         XCTAssertEqual(FocusDurationFormat.compact(60 * 60), "1h")
         XCTAssertEqual(FocusDurationFormat.compact(90 * 60), "1h 30m")
         XCTAssertEqual(FocusDurationFormat.compact(2 * 3600 + 15 * 60), "2h 15m")
+        XCTAssertEqual(FocusDurationFormat.compact(20), "20s")
+        XCTAssertEqual(FocusDurationFormat.compact(0), "0s")
         XCTAssertEqual(FocusDurationFormat.phrase(30), "less than a minute")
         XCTAssertEqual(SessionNaming.sanitized("  Deep Work  "), "Deep Work")
         XCTAssertEqual(SessionNaming.sanitized("   "), "Focus")
@@ -152,7 +154,13 @@ final class SessionLogicTests: XCTestCase {
         let other = UUID()
 
         XCTAssertEqual(MonitorPolicy.endDecision(active: session, activitySessionID: other, now: session.endDate), .ignore)
-        XCTAssertEqual(MonitorPolicy.endDecision(active: session, activitySessionID: session.id, now: start.addingTimeInterval(60)), .ignore)
+        XCTAssertEqual(MonitorPolicy.endDecision(active: session, activitySessionID: session.id, now: start.addingTimeInterval(60)), .reschedule)
+        XCTAssertEqual(MonitorPolicy.completionOutcome(for: session), .completed)
+        session.requestedOutcome = .cancelled
+        session.phase = .ending
+        XCTAssertEqual(MonitorPolicy.completionOutcome(for: session), .cancelled)
+        session.phase = .active
+        session.requestedOutcome = nil
         XCTAssertEqual(MonitorPolicy.endDecision(active: session, activitySessionID: session.id, now: session.endDate), .endSession)
         XCTAssertEqual(MonitorPolicy.endDecision(active: nil, activitySessionID: session.id, now: start), .endSession)
         XCTAssertEqual(MonitorPolicy.startDecision(active: session, activitySessionID: session.id, now: start.addingTimeInterval(30)), .reapply)

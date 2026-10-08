@@ -36,4 +36,5 @@ enum FocusFiles {
     static let preferences = "preferences.json"
     static let summary = "pending-summary.json"
     static let interruptions = "interruptions.json"
+    static let monitorCursor = "monitor-cursor.json"
 }

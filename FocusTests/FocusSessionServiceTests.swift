@@ -157,6 +157,49 @@ final class FocusSessionServiceTests: XCTestCase {
         XCTAssertEqual(harness.service.presets.first { $0.id == custom.id }?.duration, 25 * 60)
     }
 
+    func testReconcileDoesNotReblockAfterTheMonitorFinishes() async throws {
+        let harness = try ServiceHarness()
+        await harness.service.bootstrap()
+        try await harness.service.start(harness.request())
+        let session = try XCTUnwrap(harness.service.activeSession)
+        harness.restrictions.applied.removeAll()
+        _ = try harness.store.completeActive(
+            id: session.id,
+            at: session.startDate.addingTimeInterval(60),
+            outcome: .completed
+        )
+
+        await harness.service.reconcile()
+
+        XCTAssertEqual(harness.service.phase, .idle)
+        XCTAssertNil(harness.service.activeSession)
+        XCTAssertTrue(harness.restrictions.applied.isEmpty)
+        XCTAssertEqual(harness.service.history.count, 1)
+        XCTAssertEqual(harness.service.pendingSummary?.phase, .completed)
+    }
+
+    func testEndingAfterTheMonitorAlreadyFinishedDoesNotReviveTheSession() async throws {
+        let harness = try ServiceHarness()
+        await harness.service.bootstrap()
+        try await harness.service.start(harness.request())
+        let session = try XCTUnwrap(harness.service.activeSession)
+        let finished = try harness.store.completeActive(
+            id: session.id,
+            at: session.startDate.addingTimeInterval(60),
+            outcome: .completed
+        )
+        XCTAssertEqual(finished?.phase, .completed)
+
+        try await harness.service.endManually()
+
+        XCTAssertEqual(harness.service.phase, .idle)
+        XCTAssertNil(harness.service.activeSession)
+        XCTAssertNil(try harness.store.loadActive())
+        XCTAssertEqual(harness.service.history.count, 1)
+        XCTAssertEqual(harness.service.history.first?.phase, .completed)
+        XCTAssertEqual(harness.service.pendingSummary?.phase, .completed)
+    }
+
     func testAuthorizationLossEndsTheSession() async throws {
         let harness = try ServiceHarness()
         await harness.service.bootstrap()

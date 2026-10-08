@@ -96,6 +96,23 @@ final class FocusStoreTests: XCTestCase {
         XCTAssertNil(try store.loadActive())
     }
 
+    func testExclusiveSaveDoesNotDeadlock() throws {
+        let store = try FocusStore(directory: directory, usesAppGroup: true)
+        let session = FocusSession.starting(
+            name: "Work",
+            presetID: nil,
+            start: Date(timeIntervalSince1970: 20_000),
+            duration: 25 * 60,
+            selection: PersistedSelection()
+        )
+        try store.exclusively {
+            try store.saveActive(session)
+            let loaded = try store.loadActive()
+            XCTAssertEqual(loaded?.id, session.id)
+        }
+        XCTAssertEqual(try store.loadActive()?.id, session.id)
+    }
+
     func testPreferencesPersist() throws {
         let store = try FocusStore(directory: directory, usesAppGroup: true)
         XCTAssertFalse(try store.loadPreferences().hasFinishedOnboarding)

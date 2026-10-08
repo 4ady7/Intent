@@ -91,7 +91,7 @@ monitor_names = {
     "FocusIdentifiers.swift", "FocusDuration.swift", "FocusError.swift", "FocusLog.swift",
     "SessionPhase.swift", "PersistedSelection.swift", "FocusSession.swift", "FocusPreset.swift",
     "SessionStateMachine.swift", "SessionClock.swift", "FocusFileIO.swift", "FocusStore.swift",
-    "BlockingService.swift", "MonitorPolicy.swift",
+    "BlockingService.swift", "MonitorPolicy.swift", "ScheduleWindow.swift",
 }
 shield_names = {
     "FocusIdentifiers.swift", "FocusDuration.swift", "FocusError.swift", "FocusLog.swift",

@@ -13,6 +13,7 @@ struct FocusSetupView: View {
     @State private var hours = 0
     @State private var minutes = 25
     @State private var errorMessage: String?
+    @State private var isStarting = false
     private let presetID: UUID
 
     init(draft: FocusDraft) {
@@ -134,12 +135,19 @@ struct FocusSetupView: View {
         .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             Button {
-                Task { await start() }
+                guard !isStarting else { return }
+                isStarting = true
+                Task {
+                    let started = await start()
+                    if !started {
+                        isStarting = false
+                    }
+                }
             } label: {
-                Text(model.isWorking ? "Starting…" : "Start Focus")
+                Text(model.isWorking || isStarting ? "Starting…" : "Start Focus")
             }
             .buttonStyle(FocusPrimaryButtonStyle())
-            .disabled(model.isWorking || !selection.hasSelection || !durationIsValid)
+            .disabled(model.isWorking || isStarting || !selection.hasSelection || !durationIsValid)
             .padding(.horizontal, 24)
             .padding(.top, 8)
             .padding(.bottom, 12)
@@ -169,7 +177,7 @@ struct FocusSetupView: View {
         duration = TimeInterval(hours * 3600 + minutes * 60)
     }
 
-    private func start() async {
+    private func start() async -> Bool {
         var draft = FocusDraft(preset: model.presets.first { $0.id == presetID } ?? FocusPreset.defaults[0])
         draft.name = name
         draft.duration = duration
@@ -177,8 +185,10 @@ struct FocusSetupView: View {
         do {
             try await model.start(draft)
             dismiss()
+            return true
         } catch {
             errorMessage = model.message(for: error)
+            return false
         }
     }
 }
